@@ -4,7 +4,7 @@ const Spinner = () => {
   return (
     <div className="overflow-hidden">
       <div
-        style={{ "border-top-color": "transparent" }}
+        style={{ borderTopColor: "transparent" }}
         className="w-16 h-16 border-4 border-accent border-solid rounded-full animate-spin"
       ></div>
     </div>
