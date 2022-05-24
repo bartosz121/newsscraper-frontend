@@ -28,9 +28,9 @@ const Article = (props) => {
       onClick={() => console.log(props.data)}
       className="card w-full md:w-96 bg-base-300 bg-opacity-20 shadow-xl"
     >
-      <div className="card-body" data-tip="asdsd">
+      <div className="card-body px-4 sm:px-8">
         <div className="flex flex-row items-center">
-          <div className="flex-none avatar w-16 h-16">
+          <div className="flex-none avatar w-12 h-12 sm:w-16 sm:h-16">
             <img
               src={imgUrl ? validateImageUrl(imgUrl) : defaultNewsImg}
               alt="Article image"
