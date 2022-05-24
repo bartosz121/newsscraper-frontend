@@ -16,7 +16,8 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "6",
     "supertokens-auth-react": "^0.20.4",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "use-debounce": "^8.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
