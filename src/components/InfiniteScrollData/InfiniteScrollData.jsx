@@ -23,7 +23,6 @@ const InfiniteScrollData = ({ url, MapComponent, axiosInstance }) => {
 
   const fetchData = async () => {
     const response = await axiosInstance.get(getFetchUrl());
-    console.log(response);
     setData((state) => [...state, ...getValidJson(response.data.result)]);
     setDataPage((state) => state + 1);
     setHasMore(response.data.hasNext);
