@@ -16,6 +16,7 @@ const Navbar = () => {
     await signOut();
     userSignedOut();
     navigate("/", { replace: true });
+    location.reload();
   };
 
   useEffect(() => {
