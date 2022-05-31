@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
-// import axiosI from "../../api/axios";
 import Spinner from "../Spinner/Spinner";
 
 const InfiniteScrollData = ({ url, MapComponent, axiosInstance }) => {
