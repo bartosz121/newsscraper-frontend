@@ -13,14 +13,14 @@ const Search = () => {
 
   const fetchNews = async () => {
     setLoading(true);
-    const url = `https://newsscraperapi.bartoszmagiera.me/api/v1/news?search=${debouncedUserInput}`;
+    const API_BASE_URL = import.meta.env.VITE_NEWSSCRAPER_API_URL;
+    const url = `${API_BASE_URL}?search=${debouncedUserInput}`;
     const response = await axios.get(url);
     setNews([...JSON.parse(response.data.result)]);
     setLoading(false);
   };
 
   useEffect(() => {
-    console.log(debouncedUserInput);
     if (debouncedUserInput.trim() !== "") {
       fetchNews();
     }
