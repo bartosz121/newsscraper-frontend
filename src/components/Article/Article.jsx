@@ -5,6 +5,7 @@ import axiosI from "../../api/axios";
 
 import defaultNewsImg from "../../assets/defaultNewsImg.jpeg";
 import BookmarkIcon from "../BookmarkIcon/BookmarkIcon";
+import { toast } from "react-toastify";
 
 const Article = (props) => {
   const {
@@ -24,15 +25,29 @@ const Article = (props) => {
   const addBookmark = async () => {
     await axiosI
       .post(`${BOOKMARK_BASE_URL}/bookmark`, { article_id: id })
-      .then((response) => setIsBookmarked(true))
-      .catch((error) => console.error(error));
+      .then((response) => {
+        setIsBookmarked(true);
+        toast.success("Bookmark added!");
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMsg = error.response.data.detail;
+        toast.error(errorMsg ? errorMsg : "Error");
+      });
   };
 
   const removeBookmark = async () => {
     await axiosI
       .delete(`${BOOKMARK_BASE_URL}/bookmark`, { data: { article_id: id } })
-      .then((response) => setIsBookmarked(false))
-      .catch((error) => console.error(error));
+      .then((response) => {
+        setIsBookmarked(false);
+        toast.info("Bookmark removed");
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMsg = error.response.data.detail;
+        toast.error(errorMsg ? errorMsg : "Error");
+      });
   };
 
   const handleBookmarkBtnClick = async () => {
