@@ -77,17 +77,19 @@ const Article = (props) => {
         console.log(`isBookmarked: ${isBookmarked}`);
       }}
       onMouseEnter={(e) => {
-        setIsMouseOver(true);
-        if (isBookmarked === null) {
-          axiosI
-            .post(`${BOOKMARK_BASE_URL}/bookmark/check`, {
-              article_id: id,
-            })
-            .then((response) => {
-              const is_bookmarked = response.data.is_bookmarked;
-              setIsBookmarked(is_bookmarked);
-            })
-            .catch((error) => console.error(error));
+        if (isLoggedIn) {
+          setIsMouseOver(true);
+          if (isBookmarked === null) {
+            axiosI
+              .post(`${BOOKMARK_BASE_URL}/bookmark/check`, {
+                article_id: id,
+              })
+              .then((response) => {
+                const is_bookmarked = response.data.is_bookmarked;
+                setIsBookmarked(is_bookmarked);
+              })
+              .catch((error) => console.error(error));
+          }
         }
       }}
       onMouseLeave={(e) => setIsMouseOver(false)}
