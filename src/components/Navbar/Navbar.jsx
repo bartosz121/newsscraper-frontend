@@ -23,7 +23,6 @@ const Navbar = () => {
     const checkSession = async () => {
       const doesSessionExist = await Session.doesSessionExist();
       setSessionExists(doesSessionExist);
-      console.log(doesSessionExist);
       doesSessionExist ? userSignedIn() : userSignedOut();
     };
 
@@ -62,13 +61,14 @@ const Navbar = () => {
             <line x1="21" y1="21" x2="15" y2="15"></line>
           </svg>
         </Link>
+
         {isLoggedIn ? (
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
               <div className="rounded-full flex justify-center items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-user"
+                  className="icon icon-tabler icon-tabler-user"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
